@@ -12,6 +12,10 @@ export const discordMessageInputSchema = z.object({
 
 export const discordMessageOptionsSchema = discordMessageInputSchema.extend({});
 
+export const discordRemoteMessageInputSchema = discordMessageInputSchema.omit({
+  webhookUrl: true,
+});
+
 export const discordSendMessageRequestSchema = z.object({
   content: z.string().min(1),
 });
@@ -36,6 +40,9 @@ export const discordMessageOutputSchema = z.object({
 
 export type DiscordMessageInput = z.infer<typeof discordMessageInputSchema>;
 export type DiscordMessageOptions = z.infer<typeof discordMessageOptionsSchema>;
+export type DiscordRemoteMessageInput = z.infer<
+  typeof discordRemoteMessageInputSchema
+>;
 export type DiscordSendMessageRequest = z.infer<
   typeof discordSendMessageRequestSchema
 >;
