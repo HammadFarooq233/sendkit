@@ -37,15 +37,13 @@ export async function sendDiscordMessage(
     try {
       const json = await response.json();
       data = discordSendMessageResponseSchema.parse(json);
-    } catch (e) {
+    } catch {
       // ignore parse errors
     }
   }
 
   if (!response.ok) {
-    const text = data
-      ? JSON.stringify(data).slice(0, 500)
-      : await response.text();
+    const text = data ? JSON.stringify(data).slice(0, 500) : await response.text();
     throw new Error(
       `Discord webhook request failed: ${response.status} ${response.statusText} - ${text}`,
     );

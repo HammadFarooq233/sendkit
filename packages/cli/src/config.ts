@@ -34,9 +34,7 @@ export function getDiscordWebhookUrl() {
     );
   }
 
-  const config = cliConfigSchema.parse(
-    JSON.parse(readFileSync(configPath, "utf8")),
-  );
+  const config = cliConfigSchema.parse(JSON.parse(readFileSync(configPath, "utf8")));
   const webhookUrl = config.discordWebhookUrl;
 
   if (!webhookUrl) {

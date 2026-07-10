@@ -78,20 +78,17 @@ const clerkClient = createClerkClient({
   secretKey: clerkSecretKey,
 });
 
-app.get(
-  "/.well-known/oauth-protected-resource/:webhookId/:webhookToken/mcp",
-  (c) => {
-    return c.json(
-      generateClerkProtectedResourceMetadata({
-        publishableKey: clerkPublishableKey,
-        resourceUrl: new URL(
-          `/${c.req.param("webhookId")}/${c.req.param("webhookToken")}/mcp`,
-          c.req.url,
-        ).toString(),
-      }),
-    );
-  },
-);
+app.get("/.well-known/oauth-protected-resource/:webhookId/:webhookToken/mcp", (c) => {
+  return c.json(
+    generateClerkProtectedResourceMetadata({
+      publishableKey: clerkPublishableKey,
+      resourceUrl: new URL(
+        `/${c.req.param("webhookId")}/${c.req.param("webhookToken")}/mcp`,
+        c.req.url,
+      ).toString(),
+    }),
+  );
+});
 
 app.post("/:webhookId/:webhookToken/mcp", async (c) => {
   const webhookId = c.req.param("webhookId");

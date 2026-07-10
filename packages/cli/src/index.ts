@@ -1,10 +1,6 @@
 import { Command } from "commander";
 import { sendDiscordMessage } from "sendkit-core";
-import {
-  configPath,
-  getDiscordWebhookUrl,
-  writeDiscordWebhookUrl,
-} from "./config";
+import { configPath, getDiscordWebhookUrl, writeDiscordWebhookUrl } from "./config";
 
 const program = new Command();
 
@@ -25,19 +21,17 @@ program
   .description("Send a Discord message via a saved Discord webhook URL")
   .argument("<message>", "Message text to send")
   .option("-w, --wait", "Request Discord to return the created message object")
-  .action(
-    async (message: string, options: { wait?: boolean }) => {
-      const webhookUrl = getDiscordWebhookUrl();
+  .action(async (message: string, options: { wait?: boolean }) => {
+    const webhookUrl = getDiscordWebhookUrl();
 
-      const result = await sendDiscordMessage({
-        webhookUrl,
-        message,
-        wait: !!options.wait,
-      });
+    const result = await sendDiscordMessage({
+      webhookUrl,
+      message,
+      wait: !!options.wait,
+    });
 
-      console.log(JSON.stringify(result, null, 2));
-    },
-  );
+    console.log(JSON.stringify(result, null, 2));
+  });
 
 await program.parseAsync(process.argv).catch((error: unknown) => {
   console.error(error instanceof Error ? error.message : String(error));
