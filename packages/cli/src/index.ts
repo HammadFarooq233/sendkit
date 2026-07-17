@@ -1,6 +1,10 @@
 import { Command } from "commander";
-import { sendDiscordMessage } from "sendkit-core";
-import { configPath, getDiscordWebhookUrl, writeDiscordWebhookUrl } from "./config";
+import { sendDiscordMessage } from "@hammad-farooq/sendkit-core";
+import {
+  configPath,
+  getDiscordWebhookUrl,
+  writeDiscordWebhookUrl,
+} from "./config";
 
 const program = new Command();
 

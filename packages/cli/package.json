@@ -1,11 +1,14 @@
 {
-  "name": "sendkit",
+  "name": "@hammad-farooq/sendkit",
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "scripts": {
+    "build": "tsdown"
+  },
   "dependencies": {
     "commander": "^15.0.0",
-    "sendkit-core": "workspace:*",
+    "@hammad-farooq/sendkit-core": "workspace:*",
     "zod": "^4.4.3"
   }
 }

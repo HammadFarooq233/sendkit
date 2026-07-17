@@ -4,7 +4,7 @@ import {
   discordMessageInputSchema,
   type DiscordMessageInput,
   sendDiscordMessage,
-} from "sendkit-core";
+} from "@hammad-farooq/sendkit-core";
 
 const server = new McpServer({
   name: "sendkit-local",
