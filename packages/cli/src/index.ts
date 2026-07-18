@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { Command } from "commander";
 import { sendDiscordMessage } from "@hammad-farooq/sendkit-core";
 import {
