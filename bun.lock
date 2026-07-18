@@ -23,8 +23,11 @@
       },
     },
     "packages/cli": {
-      "name": "@hammad-farooq/sendkit",
+      "name": "@hammad-farooq/sendkit-cli",
       "version": "0.0.0",
+      "bin": {
+        "sendkit": "./dist/index.js",
+      },
       "dependencies": {
         "@hammad-farooq/sendkit-core": "workspace:*",
         "commander": "^15.0.0",
@@ -40,7 +43,7 @@
     },
     "packages/local-mcp": {
       "name": "@hammad-farooq/sendkit-mcp",
-      "version": "0.0.0",
+      "version": "0.0.1",
       "dependencies": {
         "@hammad-farooq/sendkit-core": "workspace:*",
         "@modelcontextprotocol/sdk": "1.29.0",
@@ -61,7 +64,7 @@
 
     "@emnapi/wasi-threads": ["@emnapi/wasi-threads@1.2.2", "", { "dependencies": { "tslib": "^2.4.0" } }, "sha512-c95qOXkHdydNKhscBTebqEC1CVAZpyqOfVfBzQ1qgzyl3gfeldUjIggDbIZgDKsHLgnsM+igH7TJ/eAasaVuMA=="],
 
-    "@hammad-farooq/sendkit": ["@hammad-farooq/sendkit@workspace:packages/cli"],
+    "@hammad-farooq/sendkit-cli": ["@hammad-farooq/sendkit-cli@workspace:packages/cli"],
 
     "@hammad-farooq/sendkit-core": ["@hammad-farooq/sendkit-core@workspace:packages/core"],
 
